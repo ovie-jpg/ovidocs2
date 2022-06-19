@@ -1,0 +1,282 @@
+.pt {
+  position: relative;
+  height: 500px;
+  max-width: 100%;
+  overflow: auto;
+}
+.pt .container {
+  position: absolute;
+  bottom: 0;
+  right: 20%;
+  font-size: 100px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+.pt .bottom {
+  bottom: 0px;
+  font-size: 100px;
+  font-family: 'Times New Roman', Times, serif;
+  z-index: 1;
+  text-align: center;
+}
+.cv {
+  height:inherit;
+  width: 100%;
+  z-index: -1;
+}
+.menu {
+  border: 8px;
+  margin: 0%;
+  padding: 0%;
+}
+.menu:hover ul {
+  display: inline-block;
+  list-style-type: none;
+  background-color: rgba(128, 128, 128, 0.26);
+  height: 300px;
+  width: 20%;
+  margin: 0;
+  padding: 0;
+}
+.menu li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111;
+}
+
+ul.links {
+  display: none;
+}
+.bar {
+  height: 50px;
+  width: 50px;
+}
+li {
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  background-color: peachpuff;
+  margin-bottom: 10px;
+}
+.opp {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+.opp img {
+  z-index: -1;
+
+}
+.container2 {
+  position:relative;
+}
+.topright {
+  margin: 100px;
+  position: absolute;
+  top: 100px;
+  font-size: 20px;
+}
+.container2 img {
+  margin-top: 100px;
+  width: 100%;
+  height: 300px;
+  opacity: 0.3;
+}
+.window {
+  width: 100%;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+.window .data {
+  width: 100%;
+  height: 50px;
+  background-color: darkgray;
+
+}
+.window .bio {
+  width: 100%;
+  height: 200px;
+}
+.window .wp{
+  float: right;
+}
+.window .place {
+  width:100%;
+  height: 50px;
+  overflow: none;
+}
+.window .wp {
+  margin-top: 0px;
+}
+.window .loc {
+  margin-bottom: 30px;
+}
+.window section {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 50px;
+}
+.window2 {
+  width: 100%;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+.window2 .profile {
+  width: 20%;
+  height: 1500px;
+  background-color: darkgrey;
+}
+.window2 .profile h1 {
+  margin-bottom: 50px;
+}
+.window2 .profile p {
+  margin-bottom: 50px;
+}
+.window2 .info {
+  height: 200px;
+  width: 78%;
+  float: right;
+  left: 0px;
+  margin-bottom: 50px;
+}
+.window2 .data {
+  width: 100%;
+  height: 50px;
+  background-color: darkgray;
+
+}
+.cvdivs {
+  border-style: double;
+  border-color: gold;
+  margin-bottom: 500px;
+}
+.window3 .B{
+  margin-top: 0px;
+  float: right;
+  height: 100%;
+  width: 80%
+}
+.window3 .A{
+  background-color: grey;
+  height: 1000px;
+  width: 20%;
+}
+.B h1{
+  margin-top: 100px;
+  margin-left: 200px;
+}
+.window3 .name{
+  background-color: gold;
+  margin-top: 0;
+}
+.window3 .y-box{
+  float: left;
+  background-color: yellow;
+  margin-right: 10px;
+}
+.window3 .space {
+  margin-bottom: 50px;
+  background-color: black;
+}
+.window3 .B div{
+  margin-bottom: 200px;
+}
+.window3 .main {
+  margin-left: 100px;
+  text-decoration: underline;
+}
+.window3 {
+  width: 100%;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+.window4 {
+  width: 100%;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+.window4 body{
+  border-color: blue;
+  border-style: solid;
+  height: 1000px;
+}
+.window4 .main {
+  margin-left: 100px;
+  text-decoration: underline;
+}
+.B div {
+  margin-bottom: 200px;
+}
+.window4 .name {
+  text-align: center;
+}
+.window4 .blue {
+  float: right;
+}
+.window4 .cs {
+  clear: right;
+}
+.window4 .blue {
+  display: inline-block;
+  background-color: blue;
+  height: 100px;
+  width: 70%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+}
+.window4 .space {
+  float: left
+}
+.window4 .space {
+  display: inline-block;
+  margin-left: 50px;
+}
+.window4 .side {
+  float: left;
+}
+.window4 .cs div:first-child {
+  margin-right: 100px;
+}
+.A div {
+  float: left;
+}
+.window5 .A {
+  display: inline-block;
+  background-color: cadetblue;
+  width: 100%;
+}
+.window5 .heads {
+  height: 50px;
+  width: 300px;
+  background-color: blueviolet;
+}
+.window5 .main {
+  margin-bottom: 500px;
+}
+.window5 .empty {
+  background-color: blueviolet;
+  width: 100%;
+  height: 5px;
+  margin-top: 0px;
+  overflow: hidden;
+}
+.window5 {
+  width: 100%;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+.warning{
+  max-width: 100%;
+  height: auto;
+  margin-top: 50%;
+  margin-bottom: 50%;
+}

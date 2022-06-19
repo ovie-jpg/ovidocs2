@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>OVIDOCS</title>
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <style>
+            
+        </style>
+
+    </head>
+    <body>
+        <div class="pt">
+            <img src="{% static 'images/titlepic.gif' %}" class="cv" alt="image">
+            <div class="container"><h1 style="color: mediumslateblue;">OVIDOCS</h1></div>
+            <div class="bottom"><p>Get notified on job opportunities and design your CV for free</p></div>
+        </div>
+        <div class="menu">
+            <img src="{% static 'images/menu-bar.jpg' %}" class="bar" alt="image">
+            <ul class="links">
+                <li><a href="#">home</a></li>
+                <li><a href="cvgen">Generate Cv</a></li>
+                <li><a href="#">Design Poster</a></li>
+                <li><a href="#">Design Letterhead</a></li>
+            </ul>
+
+        </div>
+        <center>
+        {% if dets >= 1 %}
+        <h1>Number: {{dets.count}}</h1>
+    </center>
+    <div style= 'display: hidden'>
+    {% for det in dets %}
+        <h1 style= "font-size: 20px;">{{det.fname}} {{det.lname}}</h1>
+        <p>Address: 32, crescent, somolu, Lagos state</p>
+        <p>E-mail: {{det.email}} </p> <p>Tel: 08011345678</p>
+        </center>
+    {% endfor %}
+    </div>
+        <h1> details uploaded, click next </h1>
+        {% for message in messages %}
+        <h1>{{messages}}</h1>
+        {% endfor %}
+        {% else %}
+            <div class="form">
+                <form method="POST" enctype="multipart/form-data" style="margin-top: 150px; border-color: grey; background-color: grey;">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                
+                <button>submit</button>
+                </form>
+                {% for message in messages %}
+                {{messages}}
+                {% endfor %}
+            </div>
+        {% endif %}
+       <script>
+           var name = "{{user.id}}";
+           document.getElementById("elder").value = name;
+       </script>     
+        
+        
+    </body>
+</html>

@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>CURRICULUM VITAE 1</title>
+        <link href="{% static 'css1/styles.css' %}" rel="stylesheet" type="text/css" media="print" />
+<style>
+.data {
+  width: 100%;
+  height: 50px;
+  background-color: darkgray;
+
+}
+.bio {
+  width: 100%;
+  height: 200px;
+}
+.wp{
+  float: right;
+}
+.place {
+  width:100%;
+  height: 50px;
+  overflow: none;
+}
+.wp {
+  margin-top: 0px;
+}
+.loc {
+  margin-bottom: 30px;
+}
+section {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 50px;
+}
+</style>
+    </head>
+    <body>
+        <center>
+        {% for det in dets %}
+        {% if det.author.id == user.id %}
+        <h1 style= "font-size: 20px;">{{det.fname}} {{det.lname}}</h1>
+        {% if adds %}
+        {% for add in adds %}
+        {% if add.author.id == user.id %}
+        <p>Address: {{add.snum}}, {{add.stname}}, {{add.lgname}}, {{add.state}}</p>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <p>ADDRESS NOT STATED</p>
+        {% endif %}
+        <p>E-mail: {{det.email}}</p> <p>Tel: {{det.phone}}</p>
+        {% endif %}
+        {% endfor %}
+        </center>
+        
+
+        <section class="bio">
+            {% if objs %}
+            <div class="data"><h1>CAREER PROFILE</h1></div>
+            {% for obj in objs %}
+            {% if obj.author.id == user.id %}
+            <P>{{obj.car}}</P>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </section>
+        <section class="ii">
+            <div class="data"><h1>EDUCATION</h1></div>
+            {% if edus %}
+            {% for edu in edus %}
+            {% if edu.author.id == user.id %}
+            <div class="place"><h1 style="font-size: 20px;">{{edu.inst}}</h1><div class="wp">{{edu.start}}-{{edu.end}}</div></div>
+            <div class="loc">{{edu.cert}}</div>
+            <div class="loc">{{edu.location}}</div> 
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </section>
+        <section class="ii">
+            <div class="data"><h1>WORKING EXPERIENCE</h1></div>
+            {% if works %}
+            {% for work in works %}
+            {% if work.author.id == user.id %}
+            <div class="place"><h1 style="font-size: 20px;">{{work.name}}</h1><div class="wp">{{work.start}}-{{work.end}}</div></div>
+            <div class="loc">{{work.location}}</div>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">NO WORKING EXPERIENCE</h1>
+            {% endif %} 
+        </section>
+        <section class="iii" style="display: inline-block;">
+        <div class="Data"><h1>SKILLS</h1>
+            <center>
+            {% if skills %}
+            {% for skill in skills %}
+            {% if skill.author.id == user.id %}
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif;">{{skill.name}},</p>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            </center>
+        </div>
+        </section>
+        <section class="iv">
+            <div class="data"><h1>HOBBIES</h1></div>
+        </section>
+        <section class="iv">
+            <div class="data"><h1>REFERRALS</h1></div>
+            {% if refs %}
+            {% for ref in refs %}
+            {% if ref.author.id == user.id %}
+            <div style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                <h1>{{ref.name}}</h1>
+                <p>{{ref.firm}}</p>
+                <p>{{ref.tel}}</p>
+                <p>{{ref.email}}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">AVAILABLE ON DEMAND</h1>
+            {% endif %}
+        </section>
+
+
+        
+    </body>
+    <script src="<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>">
+    <script>
+      var doc = new jsPDF()
+      // var h1 = document.querySelector()
+      // var div = document.querySelector()
+      doc.save("output.pdf")
+    </script>  
+
+</html>
+    

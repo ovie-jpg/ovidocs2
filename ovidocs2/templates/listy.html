@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>OVIDOCS</title>
+        <link href="{% static 'images/css/styles.css' %}" rel="stylesheet" />
+        <style>
+        .hidden {
+            display: none;
+        }    
+        </style>
+    </head>
+    <body>
+        <div class="pt">
+            <img src="{% static 'images/titlepic.gif' %}" class="cv" alt="image">
+            <div class="container"><h1 style="color: mediumslateblue;">OVIDOCS</h1></div>
+        </div>
+        <div class="menu" style="width: 100%; background-color: grey;">
+            <button><a href="http://localhost:8000/cvgen/" style="font-size: 50px;">GO BACK</a></button>
+        </div>
+<h1 style="font-size: 50px;">FILL IN THE FOLLOWING DETAILS</h1>
+
+<div style="background-color: grey; margin-bottom: 50px;">
+    {% if dets.author.id == user.id %}
+    <h1>FILL IN YOUR DETAILS <p style="color:green; float: right;">UPLOADED</p></h1>
+    {% else %}
+    <h1>FILL IN YOUR DETAILS <a href="updet" style="color: red;">UPLOAD</a></h1>
+    {% endif %}
+    
+            {% for det in dets %}
+                {% if det.author.id == user.id %}
+                <h1 style="color:green;">DETAILS UPLOADED, DO NOT UPLOAD AGAIN</h1>
+                {% else %}
+                <h1>FILL IN YOUR DETAILS <a href="updet" style="color: red;">UPLOAD</a></h1>
+                {% endif %}
+            {% endfor %}
+            <br/>
+</div>
+
+<div style="background-color: grey; margin-bottom: 50px;">
+    <h1>INPUT YOUR ADDRESS <a href="updet2" style="color: red;">UPLOAD</a></h1>
+    {% for add in adds %}
+    {% if add.author.id == user.id %}
+    <h1 style="color:green;">ADDRESS UPLOADED, DO NOT UPLOAD AGAIN</h1>
+    {% endif %}
+    {% endfor %}
+    <br/>
+</div>
+
+<div style="background-color: grey; margin-bottom: 50px; max-height: inherit;">
+    <h1>WHAT ARE/IS YOUR CAREER OBJECTIVES <a href="updet3" style="color: red;">UPLOAD</a></h1>
+    {% for obj in objs %}
+    {% if obj.author.id == user.id %}
+    <h1 style="color:green; float: right;"> CLICK UPLOAD AGAIN IF YOU WOULD STILL LIKE TO ADD MORE</h1>
+    {% endif %}
+    {% endfor %}
+    <br/>
+</div>
+    
+
+
+<div style="background-color: grey; margin-bottom: 50px;"> 
+        <h1>WHAT IS YOUR EDUCATION HISTORY? <a href="updet4" style="color: red;">UPLOAD</a></h1>
+        {% for edu in edus %}
+        {% if edu.author.id == user.id %}
+        <h1 style="color:green; float: right;"> CLICK UPLOAD AGAIN IF YOU WOULD STILL LIKE TO ADD MORE</h1>
+        {% endif %}
+        {% endfor %}
+        <br/>
+</div>
+
+<div style="background-color: grey; margin-bottom: 50px;">
+        <h1>LIST YOUR WORKING EXPERIENCE <a href="updet5" style="color: red;">UPLOAD</a></h1>
+        {% for work in works %}
+        {% if work.author.id == user.id %}
+        <h1 style="color:green; float: right;"> CLICK UPLOAD AGAIN IF YOU WOULD STILL LIKE TO ADD MORE</h1>
+        {% endif %}
+        {% endfor %}
+        <br/>
+</div>
+
+<div style="background-color: grey; margin-bottom: 50px;">
+        <h1>MENTION THE SKILLS YOU POSSESS <a href="updet6" style="color: red;">UPLOAD</a></h1>
+        {% for skill in skills %}
+        {% if skill.author.id == user.id %}
+        <h1 style="color:green; float: right;"> CLICK UPLOAD AGAIN IF YOU WOULD STILL LIKE TO ADD MORE</h1>
+        {% endif %}
+        {% endfor %}
+        <br/>
+</div>
+
+<div style="background-color: grey; margin-bottom: 50px;">
+        <h1>DO YOU HAVE ANY REFERENCES YOU WOULD LIKE TO ADD? <a href="updet7" style="color: red;">UPLOAD</a></h1>
+        {% for ref in refs %}
+        {% if ref.author.id == user.id %}
+        <h1 style="color:green; float: right;"> CLICK UPLOAD AGAIN IF YOU WOULD STILL LIKE TO ADD MORE</h1>
+        {% endif %}
+        {% endfor %}
+        <br/>
+</div>
+
+        <div class="hidden">
+
+
+            <h1> {{user.id}} </h1>
+
+        {% for det in dets %}
+        {% if det.author.id == user.id %}
+        <h1 style= "font-size: 20px;">{{det.fname}} {{det.lname}}</h1>
+        <p> {{det.author.id}} </p>
+        <p>E-mail: {{det.email}} </p> <p>Tel: 08011345678</p>
+        </center>
+        {% endif %}
+        {% endfor %}
+
+    
+
+
+            {% for add in adds %}
+            {% if add.author.id == user.id %}
+            <p>Address: {{add.snum}}, {{add.stname}}, {{add.lgname}}, {{add.state}}</p> <p>{{add.author.id}}</p>
+            {% endif %}
+            {% endfor %}
+
+                    {% if objs %}
+                    <div class="data"><h1>CAREER PROFILE</h1></div>
+                    {% for obj in objs %}
+                    {% if obj.author.id == user.id %}
+                    <P>{{obj.car}}</P> <h1>{{obj.author.id}}</h1>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    <div class="data"><h1>EDUCATION</h1></div>
+                    {% if edus %}
+                    {% for edu in edus %}
+                    {% if edu.author.id == user.id %}
+                    <div class="place"><h1 style="font-size: 20px;">{{edu.inst}}</h1><div class="wp">{{edu.start}}-{{edu.end}}</div></div>
+                    <div class="loc">{{edu.cert}}</div>
+                    <div class="loc">{{edu.location}}</div>
+                    {% endif %} 
+                    {% endfor %}
+                    {% endif %}
+                <div class="data"><h1>WORKING EXPERIENCE</h1></div>
+                {% if works %}
+                {% for work in works %}
+                {% if work.author.id == user.id %}
+                <div class="place"><h1 style="font-size: 20px;">{{work.name}}</h1><div class="wp">{{work.start}}-{{work.end}}</div></div>
+                <div class="loc">{{work.location}}</div>
+                {% endif %}
+                {% endfor %}
+                {% else %}
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">NO WORKING EXPERIENCE</h1>
+                {% endif %}
+                    {% if skills %}
+                    {% for skill in skills %}
+                    {% if skill.author.id == user.id %}
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;">{{skill.name}}</p>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    {% if refs %}
+                    {% for ref in refs %}
+                    {% if ref.author.id == user.id %}
+                    <div style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                        <h1>{{ref.name}}</h1>
+                        <p>{{ref.firm}}</p>
+                        <p>{{ref.tel}}</p>
+                        <p>{{ref.email}}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">AVAILABLE ON DEMAND</h1>
+                    {% endif %}
+                </div>
+
+
+
+    </body>
+</html>

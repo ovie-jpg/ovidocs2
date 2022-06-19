@@ -1,0 +1,43 @@
+body{
+  border-color: blue;
+  border-style: solid;
+  height: 1000px;
+}
+.main {
+  margin-left: 100px;
+  text-decoration: underline;
+}
+.B div {
+  margin-bottom: 200px;
+}
+.name {
+  text-align: center;
+}
+.blue {
+  float: right;
+}
+.cs {
+  clear: right;
+}
+.blue {
+  display: inline-block;
+  background-color: blue;
+  height: 100px;
+  width: 70%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+}
+.space {
+  float: left
+}
+.space {
+  display: inline-block;
+  margin-left: 50px;
+}
+.side {
+  float: left;
+}
+.cs div:first-child {
+  margin-right: 100px;
+}

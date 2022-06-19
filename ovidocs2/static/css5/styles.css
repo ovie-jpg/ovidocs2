@@ -1,0 +1,23 @@
+.A div {
+  float: left;
+}
+.A {
+  display: inline-block;
+  background-color: cadetblue;
+  width: 100%;
+}
+.heads {
+  height: 50px;
+  width: 300px;
+  background-color: blueviolet;
+}
+.main {
+  margin-bottom: 500px;
+}
+.empty {
+  background-color: blueviolet;
+  width: 100%;
+  height: 5px;
+  margin-top: 0px;
+  overflow: hidden;
+}

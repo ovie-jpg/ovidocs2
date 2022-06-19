@@ -1,0 +1,35 @@
+.B{
+  margin-top: 0px;
+  float: right;
+  height: 100%;
+  width: 80%
+}
+.A{
+  background-color: grey;
+  height: 1000px;
+  width: 20%;
+}
+.B h1{
+  margin-top: 100px;
+  margin-left: 200px;
+}
+.name{
+  background-color: gold;
+  margin-top: 0;
+}
+.y-box{
+  float: left;
+  background-color: yellow;
+  margin-right: 10px;
+}
+.space {
+  margin-bottom: 50px;
+  background-color: black;
+}
+.B div{
+  margin-bottom: 200px;
+}
+.main {
+  margin-left: 100px;
+  text-decoration: underline;
+}

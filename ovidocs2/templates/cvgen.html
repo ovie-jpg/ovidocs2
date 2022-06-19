@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    {% if user.is_authenticated %}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>OVIDOCS</title>
+        <link href="{% static 'images/css/styles.css' %}" rel="stylesheet" />
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div class="pt">
+            <img src="{% static 'images/titlepic.gif' %}" class="cv" alt="image">
+            <div class="container"><h1 style="color: mediumslateblue;">OVIDOCS</h1></div>
+            <div class="bottom"><p>Get notified on job opportunities and design your CV for free</p></div>
+        </div>
+        <div class="menu">
+            <img src="{% static 'images/menu-bar.jpg' %}" class="bar" alt="image">
+            <ul class="links">
+                <li><a href="http://localhost:8000/">home</a></li>
+                <li><a href="formlist">upload details</a></li>
+                <li><a href="#">Design Poster</a></li>
+                <li><a href="#">Design Letterhead</a></li>
+            </ul>
+
+            <center>
+            <h1 style="font-size: 100px;">CV TEMPLATES AVAILABLE</h1>
+            <p style="font-size: 50px;">Select your choice</p>
+            </center>
+        </div>
+
+{% for det in dets %}
+{% if det.author.id == user.id %}
+<div class="cvdivs">
+    <h1>CV TEMPLATE 1</h1>
+<div class="window">
+<center>
+
+    <h1 style= "font-size: 20px;">{{det.fname}} {{det.lname}}</h1>
+    {% if adds %}
+    {% for add in adds %}
+    {% if add.author.id == user.id %}
+    <p>Address: {{add.snum}}, {{add.stname}}, {{add.lgname}}, {{add.state}}</p>
+    {% endif %}
+    {% endfor %}
+    {% else %}
+    <p>ADDRESS NOT STATED</p>
+    {% endif %}
+    <p>E-mail: {{det.email}} </p> <p>Tel: 08011345678</p>
+    </center>
+    <section class="bio">
+    {% if objs %}
+        <div class="data"><h1>CAREER PROFILE</h1></div>
+        {% for obj in objs %}
+        {% if obj.author.id == user.id %}
+        <P>{{obj.car}}</P>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+    </section>
+    <section class="ii">
+        <div class="data"><h1>EDUCATION</h1></div>
+        {% if edus %}
+        {% for edu in edus %}
+        <div class="place"><h1 style="font-size: 20px;">{{edu.inst}}</h1><div class="wp">{{edu.start}}-{{edu.end}}</div></div>
+        <div class="loc">{{edu.cert}}</div>
+        <div class="loc">{{edu.location}}</div> 
+        {% endfor %}
+        {% endif %}
+    </section>
+    <section class="ii">
+        <div class="data"><h1>WORKING EXPERIENCE</h1></div>
+        {% if works %}
+        {% for work in works %}
+        <div class="place"><h1 style="font-size: 20px;">{{work.name}}</h1><div class="wp">{{work.start}}-{{work.end}}</div></div>
+        <div class="loc">{{work.location}}</div>
+        {% endfor %}
+        {% else %}
+        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">NO WORKING EXPERIENCE</h1>
+        {% endif %} 
+    </section>
+    <section class="iii">
+        <div class="data">
+            <h1>SKILLS</h1>
+            {% if skills %}
+            {% for skill in skills %}
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif;">{{skill.name}},</p>
+            {% endfor %}
+
+            {% endif %}
+        </div>
+    </section>
+    <section class="iv">
+        <div class="data"><h1>HOBBIES</h1></div>
+    </section>
+    <section class="iv">
+        <div class="data">
+            <h1>REFERRALS</h1>
+            {% if refs %}
+            {% for ref in refs %}
+            <div style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                <h1>{{ref.name}}</h1>
+                <p>{{ref.firm}}</p>
+                <p>{{ref.tel}}</p>
+                <p>{{ref.email}}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">AVAILABLE ON DEMAND</h1>
+            {% endif %}
+        </div>
+    </section>
+</div>
+<a href="cv1">CLICK HERE TO DOWNLOAD</a>
+</div>
+<div class="cvdivs">
+<h1>CV TEMPLATE 2</h1>
+<div class="window2">
+<section class="info">
+<div class="data"><h1>CAREER PROFILE</h1></div>
+</section>
+<section class="info">
+<div class="data"><h1>WORKING EXPERIENCE</h1></div>
+</section>
+<section class="info">
+<div class="data"><h1>SKILLS</h1></div>
+</section>
+<section class="info">
+<div class="data"><h1>HOBBIES</h1></div>
+</section>
+<section class="info">
+<div class="data"><h1>REFERRALS</h1></div>
+</section>
+<section class="profile">
+<h1 style= "font-size: 20px;">JOHNSON AKANWA</h1>
+<p>Address: 32, crescent, somolu, Lagos state</p>
+<p>E-mail: johnsonakanwa@gmail.com</p> <p>Tel: 08011345678</p>
+</section>
+</div>
+<a href="cv2">CLICK HERE TO DOWNLOAD</a>
+</div>
+<div class="cvdivs">
+<h1>CV TEMPLATE 3</h1>
+<div class="window3">
+<section class="B">
+<div class="name"><h1 style= "font-size: 50px; font-family: fantasy;">JOHNSON AKANWA</h1></div>
+<div class="main"><h2 style= "font-size: 20px; font-family: fantasy;">WORKING EXPERIENCE</h2></div>
+<div class="main"><h2 style= "font-size: 20px; font-family: fantasy;">EDUCATION</h2></div>
+<div class="main"><h2 style= "font-size: 20px; font-family: fantasy;">REFERENCE</h2></div>
+</section>
+<section class="A">
+<img src="{% static 'images/Ovie_arthur.jpg' %}" height="250px" width="100%" alt="Profile pic">
+<div class="space"><div class="y-box"><P style="color: yellow;">yellow</P></div><p style="color: white;">Address: 32, crescent, somolu, Lagos state</p></div>
+<div class="space"></div><div class="y-box"><P style="color: yellow;">yellow</P></div><p style="color: white;">E-mail: johnsonakanwa@gmail.com</p></div>
+<div class="space"></div><div class="y-box"><P style="color: yellow;">yellow</P></div><p style="color: white;">Tel: 08011345678</p></div>
+</section>
+</div>
+<a href="cv3pdf">CLICK HERE TO DOWNLOAD</a>
+</div>
+
+<div class="cvdivs">
+<h1>CV TEMPLATE 4</h1>
+<div class="window4">
+<section class="B">
+<div class="name"><h1 style= "font-size: 50px; font-family: Georgia, 'Times New Roman', Times, serif;">JOHNSON AKANWA</h1></div>
+<div class="blue">
+<div class="space"><p style="color: white;">Address: 32, crescent, somolu, Lagos state</p></div>
+<div class="space"><p style="color: white;">E-mail: johnsonakanwa@gmail.com</p></div>
+<div class="space"><p style="color: white;">Tel: 08011345678</p></div>
+</div>
+<div class="cs">
+<div class="side">
+<div class="main"><h2 style= "font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">WORKING EXPERIENCE</h2></div>
+<div class="main"><h2 style= "font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">EDUCATION</h2></div>
+</div>
+<div class="side">
+<div class="main"><h2 style= "font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">SKILLS</h2></div>
+<div class="main"><h2 style= "font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">REFERENCE</h2></div>
+</div>
+</div>
+</section>
+</section>
+</div>
+<a href="cv4">CLICK HERE TO DOWNLOAD</a>
+</div>
+
+<div class="cvdivs">
+<h1>CV TEMPLATE 5</h1>
+<div class="window5">
+<section class="A">
+<div><img src="{% static 'images/Ovie_arthur.jpg' %}" height="250px" alt="Profile pic" style="border-radius: 5000px;"></div>
+<div style="margin-left: 250px;"><h1 style= "font-size: 50px; font-family: times Georgia, 'Times New Roman', Times, serif;">JOHNSON AKANWA</h1>
+    <p style="color: white;">Address: 32, crescent, somolu, Lagos state</p>
+    <p style="color: white;">E-mail: johnsonakanwa@gmail.com</p>
+    <p style="color: white;">Tel: 08011345678</p>
+</div>
+</section>
+<section class="B">
+<div class="main"><div class="heads"><h2 style= "font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">CAREER OBJECTIVES</h2></div><div class="empty"><p style="color: blueviolet;">blue</p></div></div>
+<div class="main"><div class="heads"><h2 style= "font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">EDUCATION</h2></div><div class="empty"><p style="color: blueviolet;">blue</p></div></div>
+<div class="main"><div class="heads"><h2 style= "font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">WORKING EXPERIENCE</h2></div><div class="empty"><p style="color: blueviolet;">blue</p></div></div>
+<div class="main"><div class="heads"><h2 style= "font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">SKILLS</h2></div><div class="empty"><p style="color: blueviolet;">blue</p></div></div>
+<div class="main"><div class="heads"><h2 style= "font-size: 20px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">REFERENCE</h2></div><div class="empty"><p style="color: blueviolet;">blue</p></div></div>
+</section>
+</div>
+<a href="cv5">CLICK HERE TO DOWNLOAD</a>
+</div>
+{% else %}
+
+<center><div class="warning"><h1 style="font-size: 100px; color: red;">INPUT YOUR CV DETAILS BEFORE YOU GENERATE</h1></div></center>
+
+{% endif %}
+{% endfor %}
+    </body>
+       
+    {% else %}
+    <h1>YOU ARE NOT LOGGED IN</h1>
+    {% endif %}
+</html>
